@@ -11,7 +11,11 @@ const connectionString = process.env.MONGODB_APP_CONNECTION_STRING;
 mongoose.connect(connectionString);
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 const submissionSchema = new mongoose.Schema({
   userid: String,
